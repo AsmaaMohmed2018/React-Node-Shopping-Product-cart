@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import React  from 'react';
 import { fetchProducts } from '../actions/productsAction';
+import { addTocart } from "../actions/cartActions";
 //import PropTypes from 'prop-types';
 
 
@@ -57,7 +58,7 @@ componentDidMount(){
                     <div className="product-price">
                       <div>{product.price} $</div>
                       <button
-                        onClick={() => this.props.addToCart(product)}
+                        onClick={() => this.props.addTocart(product)}
                         className="button primary"
                       >
                         Add To Cart
@@ -77,5 +78,5 @@ componentDidMount(){
 // products.defaultProps = defaultProps;
 // // #endregion
 
-export default connect((state)=>({products:state.products.items}),{fetchProducts})
+export default connect((state)=>({products:state.products.items}),{fetchProducts,addTocart})
 (products);
